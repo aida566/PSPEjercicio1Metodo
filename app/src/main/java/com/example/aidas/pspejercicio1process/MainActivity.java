@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv1 = (TextView) findViewById(R.id.tv1);
+        tv1 = (TextView) findViewById(R.id.tvConexion);
         tv2 = findViewById(R.id.tvIPS);
 
         rt = Runtime.getRuntime();
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }else{
 
-                        mostrarResultado("Ni hay conexion");
+                        mostrarResultado("No hay conexion");
                     }
 
                 } catch (IOException ex) {
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        //th.start();
+        th.start();
 
         cadena ="ifconfig";
 
@@ -134,8 +134,6 @@ public class MainActivity extends AppCompatActivity {
                             mostrarIP(a);
 
                         }
-
-                        mostrarResultado(linea);
                     }
 
                 } catch (IOException ex) {
@@ -154,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void mostrarResultado(String linea){
 
-        tv1.append(linea + "\n\n\n");
+        tv1.append(linea);
     }
 
     public void mostrarIP(String linea){
