@@ -62,11 +62,23 @@ public class MainActivity extends AppCompatActivity {
 
                     if (conexion) {
 
-                        mostrarResultado("Hay conexión a internet");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                mostrarResultado("Hay conexión a internet");
+                            }
+                        });
 
                     }else{
 
-                        mostrarResultado("No hay conexion");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                mostrarResultado("No hay conexion");
+                            }
+                        });
                     }
 
                 } catch (IOException ex) {
@@ -131,7 +143,15 @@ public class MainActivity extends AppCompatActivity {
 
                             }
 
-                            mostrarIP(a);
+                            final String aFinal = a;
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    mostrarIP(aFinal);
+                                }
+                            });
 
                         }
                     }
